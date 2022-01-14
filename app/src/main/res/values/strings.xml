@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Launcher2022</string>
+    <string name="playFirst">Jugar 2048</string>
+    <string name="playSecond">Jugar Peg Solitaire</string>
+    <string name="config">Configuració</string>
+    <string name="exit">Huye, cobarde pecador</string>
+    <string name="info">Info</string>
+</resources>
