@@ -3,6 +3,7 @@
     package="com.example.launcher2022">
 
     <application
+        android:name=".UserSettings"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Launcher2022">
         <activity
+            android:name=".ConfigActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

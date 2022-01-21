@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gristrans"
-    tools:context=".MainActivity">
+    tools:context=".ConfigActivity">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="#0000ffff"
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="226dp"
+        android:layout_height="100dp"
+        android:text="Go back button"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </ListView>
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/themeSwitch"
+    <Button
+        android:id="@+id/infoButton"
         android:layout_width="97dp"
         android:layout_height="46dp"
-        android:text="The test button"
+        android:text="The info button"
         android:textSize="10sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.897" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
