@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grisitotrans">#C61C1C1C</color>
     <color name="gristrans">#0E0E0E</color>
+    <color name="rosita">#FF6080</color>
+    <color name="red">#FF1100</color>
 </resources>

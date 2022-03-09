@@ -4,7 +4,7 @@
     <string name="playSecond">Jugar Peg Solitaire</string>
     <string name="config">Configuració</string>
     <string name="exit">Huye, cobarde pecador</string>
-    <string name="info">Info</string>
+    <string name="Estadístiques">Estadístiques</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
@@ -22,4 +22,6 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="ajustes" />
+    <string name="new_game">New Game</string>
+    <string name="espaiEnBlanc">""</string>
 </resources>

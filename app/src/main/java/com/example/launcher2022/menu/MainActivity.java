@@ -1,26 +1,26 @@
-package com.example.launcher2022;
+package com.example.launcher2022.menu;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.launcher2022.ConfigActivity;
+import com.example.launcher2022.R;
+import com.example.launcher2022.UserSettings;
+import com.example.launcher2022.doszeroquatrevuit.DosMilQuarantaVuit;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     public static final String HolaProva = "whatdefok";
     private UserSettings ajustes;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String theme;
     private ListView listView;
     SharedPreferences sharedPreferences;
-
+    //dbhelper instanciat per no instanciar a cada pta klase
 
 
     @Override
@@ -40,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTheme(R.style.Theme_Launcher2022);
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
+        //Això multiplicat per x dp + 0.5 torna els pixels
+        System.out.println(getBaseContext().getResources().getDisplayMetrics().density);
 
         ajustes = (UserSettings) getApplication();
 
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         String[] items = { getResources().getString(R.string.playFirst),
                 getResources().getString(R.string.playSecond),
                 getResources().getString(R.string.config),
-                getResources().getString(R.string.info),
+                getResources().getString(R.string.Estadístiques),
                 getResources().getString(R.string.exit) };
 
         ArrayAdapter adapter = new ArrayAdapter<>(this,R.layout.list_item, items);
@@ -85,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
             switch (pos){
                 case 0:
 
-//                    Intent intent = new Intent(this,NomDeS'activity.class);
-//                    startActivity(intent);
+                    Intent intent2048 = new Intent(this, DosMilQuarantaVuit.class);
+                    startActivity(intent2048);
 
                     break;
 
@@ -99,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
                 case 2:
 
-                    Intent intent = new Intent(this,ConfigActivity.class);
-                    startActivity(intent);
+                    Intent intentConfig = new Intent(this, ConfigActivity.class);
+                    startActivity(intentConfig);
 
                     break;
 
