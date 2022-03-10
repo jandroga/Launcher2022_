@@ -22,14 +22,11 @@ public class DbHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + TABLE_DOS + " ("+
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                     COLUMN_SCORE + " INTEGER" + ")";
+
     public static final String queryAllScores =
             "SELECT " + "SCORE." + COLUMN_ID + ", " + COLUMN_SCORE +
             " FROM " + TABLE_DOS + " USER" +
             " ORDER BY " + COLUMN_SCORE + " DESC";
-
-//    public static final String scoreUpdate =
-//            "UPDATE " + TABLE_DOS
-//            + " SET " + COLUMN_ID + =
 
     private static DbHelper dbInstance = null;
     private SQLiteDatabase db;
@@ -43,7 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        //Fer-ho full strings
+//        Fer-ho full strings
 //        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_DOS + "(" +
 //                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
 //                "score TEXT NOT NULL)");

@@ -14,6 +14,9 @@
             android:name=".ConfigActivity"
             android:exported="false" />
 
+        <activity android:name=".db.ScoreDisplay"
+            android:exported="false"/>
+
         <activity
             android:name=".menu.MainActivity"
             android:theme="@style/SplashTheme"

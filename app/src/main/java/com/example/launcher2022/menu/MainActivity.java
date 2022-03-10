@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 import com.example.launcher2022.ConfigActivity;
 import com.example.launcher2022.R;
 import com.example.launcher2022.UserSettings;
+import com.example.launcher2022.db.ScoreDisplay;
 import com.example.launcher2022.doszeroquatrevuit.DosMilQuarantaVuit;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
@@ -25,8 +26,6 @@ public class MainActivity extends Activity {
     public static final String HolaProva = "whatdefok";
     private UserSettings ajustes;
     private SwitchMaterial themeSwitch;
-    private View parentView;
-    private String theme;
     private ListView listView;
     SharedPreferences sharedPreferences;
     //dbhelper instanciat per no instanciar a cada pta klase
@@ -107,8 +106,8 @@ public class MainActivity extends Activity {
 
                 case 3:
 
-//                    Intent intent = new Intent(this,NomDeS'activity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(this, ScoreDisplay.class);
+                    startActivity(intent);
 
                     break;
 

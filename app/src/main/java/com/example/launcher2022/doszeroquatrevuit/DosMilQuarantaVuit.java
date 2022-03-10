@@ -26,6 +26,7 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
     private static final int SWIPE_THRESHOLD = 100;
     private static final int SWIPE_VELOCITY_THRESHOLD = 100;
     public TextView scoreView;
+    private TextView maxScore;
     private ArrayList<TextView> tauler = new ArrayList<>();
     private GestureDetectorCompat gestureDetectorCompat;
 
@@ -64,6 +65,7 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
         tauler.add((TextView) findViewById(R.id.d4));
 
         scoreView = (TextView) findViewById(R.id.scoreTV);
+        maxScore = (TextView) findViewById(R.id.bestScore);
 
         gestureDetectorCompat = new GestureDetectorCompat(this, this);
 

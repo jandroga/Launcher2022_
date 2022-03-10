@@ -26,6 +26,8 @@ public class PegFicha extends androidx.appcompat.widget.AppCompatImageView {
 
 
 
+        System.out.println("MOBIENDO FITXAA");
+
         //removeAllViews > removeAllViewsInLayout, canviar boolean des checkEmpty
         if (casellaObjectiu.checkEmpty()) {
             if (((Math.abs(filaNova - filaVella) == 2) && (columnaNova == columnaVella)) ||
