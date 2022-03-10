@@ -81,11 +81,6 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
         setGameReady();
     }
 
-    //TODO COMPARAR CONTADOR I MAJOR NUM DE SA BASE DE DADES
-    private void betterLocalOrBdScore(){
-
-    }
-
     private void setGameReady() {
         roomService();
         spawn();
@@ -103,10 +98,6 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
         for (TextView casella : tauler){
             casella.setText(R.string.espaiEnBlanc);
         }
-    }
-
-    public void pena(){
-        DbHelper db = new DbHelper(this);
     }
 
     public void saveScoreInDb(){
@@ -334,6 +325,7 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
         }
         return points;
     }
+
     private int moveRight(int position) {
         if (!canMoveRight(position)) {
             return 0;

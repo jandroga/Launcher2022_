@@ -23,11 +23,11 @@ public class ScoreDisplay extends ListActivity {
         setContentView(R.layout.activity_info_list);
         db = (new DbHelper(this)).getWritableDatabase();
 
-        cursor = db.rawQuery("SELECT id,lastname FROM info",null);
+        cursor = db.rawQuery("SELECT ID,SCORE FROM t.stadistics",null);
 
         adapter= new SimpleCursorAdapter(this, R.layout.contact_list_item,cursor,
-                new String[] {"_id","firstname","lastname"},
-                new int[] {R.id.txLastname,R.id.txtFirstName},
+                new String[] {"ID","SCORE"},
+                new int[] {R.id.txId,R.id.txScore},
                 CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         setListAdapter(adapter);
     }

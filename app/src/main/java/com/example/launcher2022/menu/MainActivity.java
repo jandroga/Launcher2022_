@@ -19,6 +19,7 @@ import com.example.launcher2022.R;
 import com.example.launcher2022.UserSettings;
 import com.example.launcher2022.db.ScoreDisplay;
 import com.example.launcher2022.doszeroquatrevuit.DosMilQuarantaVuit;
+import com.example.launcher2022.pegsolitaire.PegGame;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class MainActivity extends Activity {
@@ -92,8 +93,8 @@ public class MainActivity extends Activity {
 
                 case 1:
 
-//                    Intent intent = new Intent(this,NomDeS'activity.class);
-//                    startActivity(intent);
+                    Intent intentPeg = new Intent(this, PegGame.class);
+                    startActivity(intentPeg);
 
                     break;
 
