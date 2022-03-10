@@ -1,7 +1,9 @@
 package com.example.launcher2022.pegsolitaire;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
+import android.widget.ImageView;
 
 public class PegFicha extends androidx.appcompat.widget.AppCompatImageView {
 
@@ -49,6 +51,7 @@ public class PegFicha extends androidx.appcompat.widget.AppCompatImageView {
         }
         return false;
     }
+
 
     public boolean isEmpty(){
 

@@ -1,16 +1,20 @@
 package com.example.launcher2022.doszeroquatrevuit;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.view.GestureDetectorCompat;
 
 import com.example.launcher2022.R;
+import com.example.launcher2022.db.DbGestion;
+import com.example.launcher2022.db.DbHelper;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,6 +22,7 @@ import java.util.Random;
 public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGestureListener {
     private int tam = 16;
     private int contador = 0;
+    private DbHelper dbHelper;
     private static final int SWIPE_THRESHOLD = 100;
     private static final int SWIPE_VELOCITY_THRESHOLD = 100;
     public TextView scoreView;
@@ -27,6 +32,14 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
     //Dins aquest tauler s'aniran marcant les caselles buides per generar-hi (o no) nous nums
 //    private ArrayList<TextView> espaiEnBlancSlot = (ArrayList<TextView>) tauler.clone();
 
+
+    //Si no pos constructor buid me tira error
+    public DosMilQuarantaVuit(){
+
+    }
+
+    public DosMilQuarantaVuit(Context context){
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +67,21 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
 
         gestureDetectorCompat = new GestureDetectorCompat(this, this);
 
+        dbHelper = new DbHelper(this);
+
         Button button = (Button) findViewById(R.id.NewGameButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("aa");
                 setGameReady();
             }
         });
         setGameReady();
+    }
+
+    //TODO COMPARAR CONTADOR I MAJOR NUM DE SA BASE DE DADES
+    private void betterLocalOrBdScore(){
+
     }
 
     private void setGameReady() {
@@ -84,6 +103,18 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
         }
     }
 
+    public void pena(){
+        DbHelper db = new DbHelper(this);
+    }
+
+    public void saveScoreInDb(){
+        DbGestion dbGestion = new DbGestion(DosMilQuarantaVuit.this);
+        long data = dbGestion.addScore(String.valueOf(getContador()));
+        if(data > 0){
+            Toast.makeText(DosMilQuarantaVuit.this, "S'ha guardat un nou record a la base de dades", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     //Aquest merder d'aquí simplement pilla s'string des textview de sa casella que, transformat a int, és més alt que la resta, i el posa a dalt
     public void updateScore(){
         for (TextView casella: tauler){
@@ -93,6 +124,7 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
             if(!casellaTxt.equals("") && Integer.parseInt(casellaTxt) > getContador()) {
                 setContador(Integer.parseInt(casellaTxt));
                 scoreView.setText(String.valueOf(contador));
+                saveScoreInDb();
             }
         }
     }
@@ -197,12 +229,6 @@ public class DosMilQuarantaVuit extends Activity implements GestureDetector.OnGe
             }
         }
         return false;
-    }
-    private boolean doValidMovesExist() {
-        if (!isLeftValid() && !isRightValid() && !isUpValid() && !isDownValid()) {
-            return false;
-        }
-        return true;
     }
 
     private boolean canMoveLeft(int position) {
